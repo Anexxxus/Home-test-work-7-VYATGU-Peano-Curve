@@ -1,5 +1,16 @@
 ﻿uses GraphABC, fractal;
 var y1,x1,n:integer;
+procedure text;
+begin
+  textout(10, 100, 'Up-Вверх');
+  textout(10, 120, 'Down-Вниз');
+  textout(10, 140, 'Left-Влево');
+  textout(10, 160, 'Right-Вправо');
+  textout(10, 180, 'W-Увеличение масштаба');
+  textout(10, 200, 'S-Уменьшение масштаба');
+  textout(10, 220, 'D-Увеличение фрактала(+ 1)');
+  textout(10, 240, 'A-Уменьшение фрактала(- 1)');
+end;
 procedure KeyDown(key: integer);
 begin
   x := windowwidth div 2;
@@ -17,6 +28,7 @@ begin
   x := x + x1;
   y := y + y1;
   clearwindow;
+  text;
   moveto(x, y);
   PL(n);
   redraw;
@@ -25,6 +37,7 @@ begin
   SetWindowSize(800, 500);
   SetWindowCaption('Кривая Пеано');
   SetPenColor(clred);
+  text;
   x := windowwidth div 2;
   y := windowheight div 2;
   n := 5;
